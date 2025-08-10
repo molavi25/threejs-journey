@@ -1,0 +1,121 @@
+[
+  {
+    "id": 1,
+    "name": "Level 1 - Basics",
+    "sessions": [
+      { "title": "Introduction", "duration": "14m" },
+      { "title": "What is WebGL and why use Three.js", "duration": "23m" },
+      { "title": "First Three.js Project", "duration": "1h 19m" },
+      { "title": "Transform objects", "duration": "46m" },
+      { "title": "Animations", "duration": "30m" },
+      { "title": "Cameras", "duration": "57m" },
+      { "title": "Fullscreen and resizing", "duration": "30m" },
+      { "title": "Geometries", "duration": "35m" },
+      { "title": "Debug UI", "duration": "48m" },
+      { "title": "Textures", "duration": "1h 14m" },
+      { "title": "Materials", "duration": "1h 21m" },
+      { "title": "3D Text", "duration": "44m" },
+      { "title": "Go live", "duration": "24m" },
+      { "title": "Lights", "duration": "42m" },
+      { "title": "Shadows", "duration": "1h 0m" },
+      { "title": "Haunted House", "duration": "2h 50m" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Level 2 - Particles & Animation",
+    "sessions": [
+      { "title": "Particles", "duration": "49m" },
+      { "title": "Galaxy Generator", "duration": "1h 8m" },
+      { "title": "Scroll based animation", "duration": "1h 23m" },
+      { "title": "Physics", "duration": "1h 57m" },
+      { "title": "Imported models", "duration": "1h 7m" },
+      { "title": "Raycaster and Mouse Events", "duration": "1h 7m" },
+      { "title": "Custom models with Blender", "duration": "1h 59m" },
+      { "title": "Environment map", "duration": "1h 44m" },
+      { "title": "Realistic render", "duration": "1h 12m" }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Level 3 - Code & Shaders",
+    "sessions": [
+      { "title": "Code structuring (Part 1)", "duration": "1h 0m" },
+      { "title": "Code structuring (Part 2)", "duration": "1h 0m" },
+      { "title": "Code structuring (Part 3)", "duration": "1h 19m" },
+      { "title": "Shaders (Part 1)", "duration": "1h 0m" },
+      { "title": "Shaders (Part 2)", "duration": "1h 18m" },
+      { "title": "Shader patterns (Part 1)", "duration": "1h 0m" },
+      { "title": "Shader patterns (Part 2)", "duration": "49m" },
+      { "title": "Raging sea", "duration": "1h 15m" },
+      { "title": "Animated galaxy", "duration": "1h 14m" },
+      { "title": "Modified materials", "duration": "51m" }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Level 4 - Effects & Models",
+    "sessions": [
+      { "title": "Coffee Smoke", "duration": "1h 25m" },
+      { "title": "Hologram", "duration": "1h 21m" },
+      { "title": "Fireworks", "duration": "1h 47m" },
+      { "title": "Lights Shading", "duration": "1h 17m" },
+      { "title": "Raging Sea Shading", "duration": "57m" },
+      { "title": "Halftone Shading", "duration": "56m" },
+      { "title": "Earth", "duration": "1h 40m" },
+      { "title": "Particles Cursor Animation", "duration": "1h 48m" },
+      { "title": "Particles Morphing", "duration": "1h 35m" },
+      { "title": "GPGPU Flow Field Particles", "duration": "2h 22m" }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Level 5 - Advanced Models & Terrain",
+    "sessions": [
+      { "title": "Wobbly Sphere", "duration": "1h 16m" },
+      { "title": "Sliced Model", "duration": "1h 3m" },
+      { "title": "Procedural Terrain", "duration": "1h 24m" },
+      { "title": "Post-processing", "duration": "1h 36m" },
+      { "title": "Performance tips", "duration": "1h 12m" },
+      { "title": "Intro and loading progress", "duration": "49m" },
+      { "title": "Mixing HTML and WebGL", "duration": "58m" },
+      { "title": "Creating a scene in Blender", "duration": "2h 4m" },
+      { "title": "Baking and exporting the scene", "duration": "2h 11m" },
+      { "title": "Importing and optimizing the scene", "duration": "46m" },
+      { "title": "Adding details to the scene", "duration": "1h 34m" }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Level 6 - React Three Fiber",
+    "sessions": [
+      { "title": "What are React and React Three Fiber", "duration": "25m" },
+      { "title": "First React Application", "duration": "4h 23m" },
+      { "title": "First R3F Application", "duration": "2h 5m" },
+      { "title": "Drei", "duration": "1h 14m" },
+      { "title": "Debug", "duration": "51m" },
+      { "title": "Environment and Staging", "duration": "2h 2m" },
+      { "title": "Load models", "duration": "1h 29m" },
+      { "title": "3D Text (R3F)", "duration": "59m" },
+      { "title": "Portal Scene", "duration": "41m" },
+      { "title": "Mouse Events (R3F)", "duration": "47m" },
+      { "title": "Post Processing (R3F)", "duration": "1h 9m" },
+      { "title": "Animations (R3F)", "duration": "1h 1m" },
+      { "title": "Performance and Optimization", "duration": "56m" }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Level 7 - Final Project",
+    "sessions": [
+      { "title": "Final Project Introduction", "duration": "19m" },
+      { "title": "Final Project: Start Setup", "duration": "2h 30m" },
+      { "title": "Final Project: Architecture", "duration": "2h 35m" },
+      { "title": "Final Project: Core Systems", "duration": "3h 1m" },
+      { "title": "Final Project: Lighting & Effects", "duration": "1h 45m" },
+      { "title": "Final Project: UI & Interactions", "duration": "2h 10m" },
+      { "title": "Final Project: Deployment", "duration": "1h 3m" },
+      { "title": "Course Wrap-up", "duration": "21m" }
+    ]
+  }
+]

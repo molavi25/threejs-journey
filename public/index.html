@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Three.js Journey Tracker - Fullstack</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>🎯 Three.js Journey Progress Tracker</h1>
+    <p class="subtitle">Track your course sessions. Changes save on server in real time.</p>
+
+    <table aria-label="Three.js Journey Sessions Tracker">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Session</th>
+          <th>Duration</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="sessions-tbody"></tbody>
+    </table>
+    <div id="msg" style="margin-top:1rem; color:#7ab9ff;"></div>
+  </main>
+
+<script>
+  const tbody = document.getElementById("sessions-tbody");
+  const msg = document.getElementById("msg");
+  let progress = {};
+
+  async function fetchSessions() {
+    const res = await fetch('/api/sessions');
+    if (!res.ok) throw new Error("Failed to load sessions");
+    return res.json();
+  }
+
+  async function fetchProgress() {
+    const res = await fetch('/api/progress');
+    if (!res.ok) throw new Error("Failed to load progress");
+    return res.json();
+  }
+
+  async function saveProgress(newProgress) {
+    const res = await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newProgress)
+    });
+    if (!res.ok) throw new Error("Failed to save progress");
+    return res.json();
+  }
+
+  function createRow(sessionNumber, session, status) {
+    const tr = document.createElement("tr");
+    tr.className = status;
+
+    tr.innerHTML = `
+      <td class="session-number">${sessionNumber}</td>
+      <td class="session-title">${session.title}</td>
+      <td class="session-duration">${session.duration}</td>
+      <td class="session-status">
+        <select data-session="${sessionNumber}" aria-label="Change status for session ${sessionNumber} - ${session.title}">
+          <option value="not-started" ${status === "not-started" ? "selected" : ""}>Not Started</option>
+          <option value="in-progress" ${status === "in-progress" ? "selected" : ""}>In Progress</option>
+          <option value="done" ${status === "done" ? "selected" : ""}>Done</option>
+        </select>
+      </td>
+    `;
+    return tr;
+  }
+
+  async function loadData() {
+    try {
+      const levels = await fetchSessions();
+      progress = await fetchProgress();
+
+      tbody.innerHTML = "";
+      let sessionCount = 0;
+
+      levels.forEach(level => {
+        // Level header row
+        const levelRow = document.createElement("tr");
+        levelRow.className = "level-header";
+        const levelCell = document.createElement("td");
+        levelCell.setAttribute("colspan", "4");
+        levelCell.textContent = level.name;
+        levelRow.appendChild(levelCell);
+        tbody.appendChild(levelRow);
+
+        level.sessions.forEach(s => {
+          sessionCount++;
+          const status = progress[sessionCount] || "not-started";
+          const tr = createRow(sessionCount, s, status);
+          tbody.appendChild(tr);
+        });
+      });
+
+      msg.textContent = "Loaded successfully!";
+    } catch (e) {
+      msg.textContent = "Error loading data: " + e.message;
+      msg.style.color = "#f87171";
+    }
+  }
+
+  tbody.addEventListener("change", async e => {
+    if (e.target.tagName !== "SELECT") return;
+    const sessionNum = e.target.getAttribute("data-session");
+    const val = e.target.value;
+    progress[sessionNum] = val;
+    try {
+      await saveProgress(progress);
+      e.target.closest("tr").className = val;
+      msg.textContent = "Progress saved!";
+      msg.style.color = "#7ab9ff";
+    } catch (err) {
+      msg.textContent = "Error saving progress: " + err.message;
+      msg.style.color = "#f87171";
+    }
+  });
+
+  loadData();
+</script>
+</body>
+</html>
